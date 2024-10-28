@@ -1,16 +1,31 @@
-'''
+import h3
+import folium
+from folium.plugins import MousePosition
+import src.TLE_constellation.constellation_connectivity.connectivity_mode_plugin_manager as connectivity_mode_plugin_manager
+import src.constellation_generation.by_TLE.constellation_configuration as constellation_configuration
+import src.TLE_constellation.constellation_beamplacement.beam_placement_plugin_manager as beam_placement_plugin_manager
 
-Author : yunanhou
+def visualize_cells_on_map(covered_cells_per_timeslot, h3_resolution):
+    # 以某个中心位置创建地图
+    # 这里以第一个cell为地图中心
+    if covered_cells_per_timeslot and covered_cells_per_timeslot[0]:
+        first_cell = covered_cells_per_timeslot[0][0]
+        center_lat, center_lon = h3.h3_to_geo(first_cell.h3id)
+        m = folium.Map(location=[center_lat, center_lon], zoom_start=3)
 
-Date : 2023/11/15
+        # 绘制每个时隙的所有cells
+        for timeslot_cells in covered_cells_per_timeslot:
+            for cell in timeslot_cells:
+                h3_boundary = h3.h3_to_geo_boundary(cell.h3id, geo_json=True)
+                # 使用folium.Polygon绘制单元格边界
+                folium.Polygon(h3_boundary, color="blue", weight=1, fill=True, fill_opacity=0.4).add_to(m)
 
-Function : random beam placement algorithm test case in beam placement strategy
+        # 添加鼠标经纬度显示插件
+        MousePosition().add_to(m)
 
-'''
-import src.constellation_generation.by_XML.constellation_configuration as constellation_configuration
-import src.XML_constellation.constellation_connectivity.connectivity_mode_plugin_manager as connectivity_mode_plugin_manager
-import src.XML_constellation.constellation_beamplacement.beam_placement_plugin_manager as beam_placement_plugin_manager
-
+        # 保存到HTML文件，方便查看
+        m.save("h3_cells_map.html")
+        print("Map saved to h3_cells_map.html")
 
 def random_placement():
     dT = 1000
@@ -49,23 +64,12 @@ def random_placement():
         print("\t\t\tThe number of cells covered at timeslot " + str(count) + " is : " , len(every_timeslot_covered_cells) ,
               " , and the total number of cells is : " , len(Cells))
         count += 1
-        print("\t\t\th3id" , "\t" , "the longitude of the center point" , "\t" , "the latitude of the center point")
-        for cell in every_timeslot_covered_cells:
-            print("\t\t\t", cell.h3id , "\t" , cell.center_longitude , "\t" , cell.center_latitude)
-        print("\t\t\t============================================")
+        #print("\t\t\th3id" , "\t" , "the longitude of the center point" , "\t" , "the latitude of the center point")
+        #for cell in every_timeslot_covered_cells:
+            #print("\t\t\t", cell.h3id , "\t" , cell.center_longitude , "\t" , cell.center_latitude)
+        #print("\t\t\t============================================")
     print("\t\t\t============================================")
-    output_file = "beam_output.txt"
 
-    # 打开文件进行写操作
-    with open(output_file, "a") as f:
-        count = 1
-        for every_timeslot_covered_cells in covered_cells_per_timeslot:
-            f.write(
-                f"\t\t\tThe number of cells covered at timeslot {count} is : {len(every_timeslot_covered_cells)} , and the total number of cells is : {len(Cells)}\n")
-            count += 1
-            f.write("\t\t\th3id\t\tthe longitude of the center point\t\tthe latitude of the center point\n")
-            for cell in every_timeslot_covered_cells:
-                f.write(f"\t\t\t{cell.h3id}\t\t{cell.center_longitude}\t\t{cell.center_latitude}\n")
 
 if __name__ == "__main__":
     random_placement()

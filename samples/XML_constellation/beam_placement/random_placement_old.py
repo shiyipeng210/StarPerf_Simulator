@@ -46,26 +46,15 @@ def random_placement():
     print("\t\t\t============================================")
     for every_timeslot_covered_cells in covered_cells_per_timeslot:
         #print("\t\t\t============================================")
-        print("\t\t\tThe number of cells covered at timeslot " + str(count) + " is : " , len(every_timeslot_covered_cells) ,
+        print("\t\t\tThe number of cells covered at timeslot-" + str(count) + " is : " , len(every_timeslot_covered_cells) ,
               " , and the total number of cells is : " , len(Cells))
         count += 1
-        print("\t\t\th3id" , "\t" , "the longitude of the center point" , "\t" , "the latitude of the center point")
-        for cell in every_timeslot_covered_cells:
-            print("\t\t\t", cell.h3id , "\t" , cell.center_longitude , "\t" , cell.center_latitude)
-        print("\t\t\t============================================")
+        #print("\t\t\th3id" , "\t" , "the longitude of the center point" , "\t" , "the latitude of the center point")
+        #for cell in every_timeslot_covered_cells:
+        #    print("\t\t\t", cell.h3id , "\t" , cell.center_longitude , "\t" , cell.center_latitude)
+        #print("\t\t\t============================================")
     print("\t\t\t============================================")
-    output_file = "beam_output.txt"
 
-    # 打开文件进行写操作
-    with open(output_file, "a") as f:
-        count = 1
-        for every_timeslot_covered_cells in covered_cells_per_timeslot:
-            f.write(
-                f"\t\t\tThe number of cells covered at timeslot {count} is : {len(every_timeslot_covered_cells)} , and the total number of cells is : {len(Cells)}\n")
-            count += 1
-            f.write("\t\t\th3id\t\tthe longitude of the center point\t\tthe latitude of the center point\n")
-            for cell in every_timeslot_covered_cells:
-                f.write(f"\t\t\t{cell.h3id}\t\t{cell.center_longitude}\t\t{cell.center_latitude}\n")
 
 if __name__ == "__main__":
     random_placement()
