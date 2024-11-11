@@ -14,10 +14,9 @@ import src.constellation_generation.by_XML.constellation_configuration as conste
 # 1. 生成一个名为"Starlink"的星座
 # 2. 打印星座的详细信息
 def constellation_generation_test():
-    dT = 5730
-    constellation_name = "Starlink"
+    constellation_name = "Telesat"
     # generate the constellations
-    constellation = constellation_configuration.constellation_configuration(dT=dT,
+    constellation = constellation_configuration.constellation_configuration(dT=15,
                                                                             constellation_name=constellation_name)
     print('\t\t\tDetails of the constellations are as follows :')
     print('\t\t\tThe name of the constellation is : ' , constellation.constellation_name)
