@@ -25,6 +25,13 @@ import matplotlib.pyplot as plt
 # Return Value :
 # after the function is executed, the mapping relationship between satellite, orbit, and shell has been established
 # without any return value.
+
+#实现逻辑是：
+# 1. 从shell中提取所有卫星的raan
+# 2. 通过raan的分布结果，确定轨道的数量
+# 3. 将卫星分配到对应的轨道中
+# 4. 返回卫星、轨道、shell之间的映射关系
+# 返回值：无
 def satellite_to_orbit_mapping(shells):
     for sh in shells:
         # extract the raan of all satellites in sh
@@ -36,9 +43,10 @@ def satellite_to_orbit_mapping(shells):
         plt.plot(raans)
         plt.ylabel('RAANS')
         plt.show()
-
+        # determine the number of orbits based on the raan distribution result
         orbits_number = int(input('\t\t\tPlease enter the number of orbits (integer) based on the raan distribution result of '
                               'the line chart : '))
+        # determine the number of orbits based on the raan distribution result
         breaks = jenkspy.jenks_breaks(values = raans, n_classes = orbits_number)
         orbit_raans = [(breaks[i], breaks[i + 1]) for i in range(len(breaks) - 1)]
         for ra_index, ra in enumerate(orbit_raans):

@@ -10,6 +10,9 @@ Function : This script is used to test whether a constellation can be generated 
 import src.constellation_generation.by_XML.constellation_configuration as constellation_configuration
 
 
+# constellation_generation_test主要的算法逻辑如下
+# 1. 生成一个名为"Starlink"的星座
+# 2. 打印星座的详细信息
 def constellation_generation_test():
     dT = 5730
     constellation_name = "Starlink"

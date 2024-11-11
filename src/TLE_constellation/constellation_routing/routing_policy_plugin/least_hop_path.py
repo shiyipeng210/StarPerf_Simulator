@@ -35,7 +35,7 @@ def distance_between_satellite_and_user(groundstation , satellite , t):
 
 def least_hop_path(constellation_name , source , target , sh , t):
     file_path = "data/TLE_constellation/" + constellation_name + ".h5"  # h5 file path and name
-    # read the delay matrix of the shell layer of the constellation constellation at time t
+    # read the delay matrix of the layer of the constellation constellation at time t
     with h5py.File(file_path, 'r') as file:
         # access the existing first-level subgroup delay group
         delay_group = file['delay']
@@ -94,3 +94,15 @@ def least_hop_path(constellation_name , source , target , sh , t):
     least_hop_path = nx.dijkstra_path(G, source=start_satellite, target=end_satellite)
 
     return least_hop_path
+
+#算法原理
+#1.首先找到距离源地面站最近的卫星nearest_satellite_to_source_groundstation和距离目标地面站最近的卫星nearest_satellite_to_target_groundstation。
+#2.创建一个无向图对象G，最初为空，没有节点和边。
+#3.将卫星节点添加到无向图中。
+#4.将边添加到无向图中。
+#5.找到最少跳数的路径。
+#6.返回最少跳数的路径。
+#7.计算源地面站和卫星之间的距离（计算结果考虑到地球的曲率），返回值的单位是千米。
+#8.计算目标地面站和卫星之间的距离（计算结果考虑到地球的曲率），返回值的单位是千米。
+#9.计算两点之间的距离，返回值的单位是千米，保留三位小数。
+

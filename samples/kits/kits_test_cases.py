@@ -7,6 +7,17 @@ Date : 2023/11/26
 Function : This script is used to test each tool script under "kits/" in starperf 2.0
 
 '''
+# kits_test_cases的具体实现逻辑如下
+# 1. 获取所有分辨率为0-4的h3库中的所有单元格的h3id
+# 2. 查看h3单元格的h3id
+# 3. 递归读取.h5文件中所有组和数据集并获取其树目录结构
+# 4. 查看“data/h3_cells_id_res0-4.h5”中指定分辨率的所有单元格的h3id
+# 5. 读取.h5文件中的位置矩阵数据
+# 6. 读取.h5文件中的延迟矩阵数据
+# 7. 下载今天的TLE数据
+# 8. 查看星座TLE数据
+# 9. 绘制轨道上所有卫星的子卫星点轨迹以及世界地图上地面站和POP的分布
+
 
 def kits_test_cases():
     print("\t\t\033[31mTest(01/08) : get the h3id of all cells with h3 library resolution 0-4\033[0m")

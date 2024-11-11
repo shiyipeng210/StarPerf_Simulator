@@ -8,7 +8,24 @@ Function : This script is used to test the core module functionality of various 
 
 
 '''
-
+# XML_constellation_test_cases的具体实现逻辑如下
+# 1. 测试星座生成
+# 2. 测试+Grid模式下两个位置之间的延迟计算
+# 3. 测试+Grid模式下两个位置之间的带宽计算
+# 4. 测试+Grid模式下星座介数中心性值计算
+# 5. 测试+Grid模式下星座覆盖率计算
+# 6. 测试bent-pipe模式下两个位置之间的延迟计算
+# 7. 测试bent-pipe模式下两个位置之间的带宽计算
+# 8. 测试bent-pipe模式下星座覆盖率计算
+# 9. 测试bent-pipe模式下自然卫星损坏后星座性能
+# 10. 测试bent-pipe模式下太阳风暴破坏后星座性能
+# 11. 测试+Grid模式下太阳风暴破坏后星座性能
+# 12. 测试+Grid模式下自然卫星损坏后星座性能
+# 13. 测试随机波束放置模块
+# 14. 测试+Grid模式下最短路径路由计算
+# 15. 测试+Grid模式下次短路径路由计算
+# 16. 测试+Grid模式下最小跳数路径路由计算
+# 17. 测试+Grid模式下最小跳数路径路由计算
 def XML_constellation_test_cases():
     print("\t\t\033[31mTest(01/16) : constellation generation\033[0m")
     # constellation generation test

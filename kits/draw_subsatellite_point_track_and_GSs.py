@@ -49,6 +49,17 @@ def read_xml_file(file_path):
 #              "src/TLE_constellation/constellation_entity/orbit.py" class object
 # ground_station_file , POP_file : the ground station and POP point data file paths
 # dT : how often the satellite position is recorded (unit: seconds)
+
+#实现逻辑是：
+# 1. 从TLE数据中获取卫星的轨道周期
+# 2. 生成轨道周期内的时间点
+# 3. 通过时间点获取卫星的子卫星点经纬度
+# 4. 读取地面基站数据
+# 5. 生成地面基站
+# 6. 读取地面POP点数据
+# 7. 生成POP点
+# 8. 绘制卫星子卫星点轨迹，地面基站和POP点
+# 9. 保存为html文件并存在data文件夹下，该html文件中包含卫星子卫星点轨迹，地面基站和POP点
 def draw_subsatellite_point_track_and_GSs():
     dT = 1000
     constellation_name = "Starlink"
@@ -128,3 +139,4 @@ def draw_subsatellite_point_track_and_GSs():
     trajectory_GS_POP.render('data/trajectory_GS_POP.html')
     print("\t\t\tThe trajectory_GS_POP.html.html file has been generated and is located under \"data/\".")
 
+draw_subsatellite_point_track_and_GSs()

@@ -9,6 +9,23 @@ Function : This script is used to test the core module functionality of various 
 '''
 
 
+# TLE_constellation_test_cases主要的用途有以下几点
+# 1. 测试samples/TLE_constellation/constellation_generation/constellation_generation_test.py中的功能
+# 2. 测试samples/TLE_constellation/positive_Grid/bandwidth.py中的功能
+# 3. 测试samples/TLE_constellation/positive_Grid/delay.py中的功能
+# 4. 测试samples/TLE_constellation/positive_Grid/betweeness.py中的功能
+# 5. 测试samples/TLE_constellation/positive_Grid/coverage.py中的功能
+# 6. 测试samples/TLE_constellation/bent_pipe/bandwidth.py中的功能
+# 7. 测试samples/TLE_constellation/bent_pipe/coverage.py中的功能
+# 8. 测试samples/TLE_constellation/bent_pipe/delay.py中的功能
+# 9. 测试samples/TLE_constellation/positive_Grid/shortest_path.py中的功能
+# 10. 测试samples/TLE_constellation/positive_Grid/second_shortest_path.py中的功能
+# 11. 测试samples/TLE_constellation/positive_Grid/least_hop_path.py中的功能
+# 12. 测试samples/TLE_constellation/beam_placement/random_placement.py中的功能
+# 13. 测试samples/TLE_constellation/positive_Grid/natural_failure_satellites.py中的功能
+# 14. 测试samples/TLE_constellation/bent_pipe/natural_failure_satellites.py中的功能
+# 15. 测试samples/TLE_constellation/positive_Grid/sunstorm_damaged_satellites.py中的功能
+# 16. 测试samples/TLE_constellation/bent_pipe/sunstorm_damaged_satellites.py中的功能
 def TLE_constellation_test_cases():
     print("\t\t\033[31mTest(01/16) : constellation generation\033[0m")
     # constellation generation test

@@ -12,6 +12,10 @@ Function : This script is used to test each tool script under "src/standalone_mo
 
 
 
+# standalone_module_test_cases主要的用途有几下
+# 1. 测试src/standalone_module/satellite_visibility_time.py中的功能
+# 2. 测试src/standalone_module/satellite_orbital_period.py中的功能
+# 3. 测试src/standalone_module/satellite_redundancy.py中的功能
 
 def standalone_module_test_cases():
     print("\t\t\033[31mTest(01/03) : calculate the length of time a user can see a satellite\033[0m")
@@ -31,7 +35,6 @@ def standalone_module_test_cases():
     orbital_period = SATELLITE_ORBITAL_PERIOD.satellite_orbital_period(h)
     print("\t\t\tWhen the satellite orbit height is " + str(h) + " km, the satellite orbital period is " + \
           str(round(orbital_period,2)) + " s.")
-
     print("\t\t\033[31mTest(03/03) : calculate satellite redundancy\033[0m")
     import src.standalone_module.satellite_redundancy as satellite_redundancy
     satellite_redundancy.satellite_redundancy(1, "OneWeb", 1000,

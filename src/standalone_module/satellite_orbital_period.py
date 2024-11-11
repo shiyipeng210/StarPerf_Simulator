@@ -16,6 +16,12 @@ import math
 
 # Parameters :
 # alitude : the height of a satellite's orbit above the earth's surface, in kilometers
+
+# 该模块的功能是计算卫星的轨道周期
+# 计算的数学逻辑是：
+# 1. 计算卫星的轨道周期
+# 2. 返回卫星的轨道周期
+# 返回值：卫星的轨道周期
 def satellite_orbital_period(alitude):
     # the Earth's gravitational constant (unit: m^3/kg*s^2)
     G = 6.67430e-11

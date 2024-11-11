@@ -9,7 +9,11 @@ Python version requirements : Python 3.10
 # Entrance of StarPerf
 
 
-
+# main函数的作用有以下几点
+# 1. 测试samples/XML_constellation/XML_constellation_test_cases.py中各个XML星座的核心模块功能
+# 2. 测试samples/TLE_constellation/TLE_constellation_test_cases.py中各个TLE星座的核心模块功能
+# 3. 测试samples/standalone_module/standalone_module_test_cases.py中各个独立模块的功能
+# 4. 测试samples/kits/kits_test_cases.py中各个工具脚本的功能
 def main():
     print("\033[31mStarting StarPerf...\033[0m")
 

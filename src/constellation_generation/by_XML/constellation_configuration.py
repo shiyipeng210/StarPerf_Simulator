@@ -43,6 +43,16 @@ def read_xml_file(file_path):
 # Parameters:
 # dT : the timeslot, and the timeslot t is calculated from 1
 # constellation_name : the name of the constellation to be generated, used to read the xml configuration file
+# 算法逻辑：
+# 1. 读取星座配置信息
+# 2. 将星座配置信息中的字符串转换为int类型
+# 3. 确定当前星座的延迟和卫星位置数据的.h5文件是否存在，如果存在，则删除文件并创建一个空的.h5文件，如果不存在，则直接创建一个空的.h5文件
+# 4. 创建星座的每一层壳层
+# 5. 遍历每一层壳层，生成轨道
+# 6. 配置每一层壳层的所有轨道和卫星
+# 7. 为每个卫星编号，编号从1开始
+# 8. 将当前壳层的所有卫星的经度、纬度、高度等位置信息写入文件并保存
+# 9. 所有壳层、轨道和卫星已经初始化，生成目标星座并返回
 def constellation_configuration(dT , constellation_name):
     # the path to the constellation configuration information file .xml file
     xml_file_path = "config/XML_constellation/" + constellation_name + ".xml"

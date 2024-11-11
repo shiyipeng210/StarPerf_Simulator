@@ -16,6 +16,14 @@ import math
 # Parameters:
 # θ : the lowest elevation angle at which the user can see the satellite (unit: degrees)
 # h : the height of a satellite's orbit above the earth's surface, in kilometers
+# 计算的数学逻辑是：
+# 1. 计算卫星的轨道周期
+# 2. 计算用户可以看到卫星的时间
+# 3. 计算用户看不到卫星的时间
+# 4. 计算用户可以看到卫星的总时间
+# 5. 返回用户可以看到卫星的总时间
+# 返回值：用户可以看到卫星的总时间
+
 def satellite_visibility_time(θ , h):
     # the Earth's gravitational constant (unit: m^3/kg*s^2)
     G = 6.67430e-11
